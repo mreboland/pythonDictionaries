@@ -89,5 +89,3 @@ print(alien0)
 # Using del deletes the key-value pair permanently
 del alien0["points"]
 print(alien0)
-
-# A dictionary of similar objects
