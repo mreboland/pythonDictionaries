@@ -89,3 +89,80 @@ print(alien0)
 # Using del deletes the key-value pair permanently
 del alien0["points"]
 print(alien0)
+
+
+# Nesting
+# Sometimes you'll want to store multiple dictionaries in a list, or a list of items as a value in a dictionary. This is called nesting. You can nest dictionaries inside a list, a list of items inside a dictionary, or even a dictionary inside another dictionary.
+
+# To manage a fleet of aliens we could make a list aliens in which each one is a dictionary of info about that alien.
+alien0 = {'colour': 'green', 'points': 5}
+alien1 = {'colour': 'yellow', 'points': 10}
+alien2 = {'colour': 'red', 'points': 15}
+
+# First we created 3 dictionaries with unique aliens. We then stored those dictionaries in a list which we then looped through.
+aliens = [alien0, alien1, alien2]
+
+print("\n")
+for alien in aliens:
+    print(alien)
+    
+# The above way works with small numbers, but what if we want to have 30 aliens for example?
+
+# Make an empty list for storing aliens
+aliens = []
+
+# Make 30 green aliens
+# We use range() in order to generate 30 aliens (starts at 0) which is counted by alienNumber
+for alienNumber in range(30):
+    # Everytime the loop runs we create a new alien with the properties below
+    newAlien = {
+        "colour": "green",
+        "points": 5,
+        "speed": "slow"
+    }
+    # We then append (or add) the alien to our empty list
+    aliens.append(newAlien)
+    
+# Show the first 5 aliens
+# We use a slice to print the first 5 aliens as we don't need to show all 30
+for alien in aliens[:5]:
+    print(alien)
+    
+# Show how many aliens have been created
+# We use len() to determine the length of our aliens list
+print(f"Total number of aliens: {len(aliens)}")
+
+# The 30 aliens generated all have the same characteristics. However Python considers each one to be unique so we can modify each one individually.
+# To work with a list like this we can do:
+
+# Make an empty list for storing aliens
+aliens = []
+
+# Make 30 green aliens
+for alienNumber in range(30):
+    newAlien = {
+        "colour": "green",
+        "points": 5,
+        "speed": "slow"
+    }
+    aliens.append(newAlien)
+
+# Here we take a slice of the first 3 aliens in order to modify them
+for alien in aliens[:3]:
+    # If there are any aliens with the green colour in the first 3, change it with the code following
+    if alien["colour"] == "green":
+        alien["colour"] = "yellow"
+        alien["speed"] = "medium"
+        alien["points"] = 10
+    # We can expand on not just changing green aliens but yellow as well (or red) using elif
+    elif alien["colour"] == "yellow":
+        alien['color'] = 'red'
+        alien['speed'] = 'fast'
+        alien['points'] = 15
+
+# Show the first 5 aliens
+for alien in aliens[:5]:
+    print(alien)
+
+# Show how many aliens have been created
+print(f"Total number of aliens: {len(aliens)}")
