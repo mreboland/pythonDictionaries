@@ -165,3 +165,44 @@ for poller in toPoll:
         print(f"Thank you {poller.title()} for taking the poll")
     else:
         print(f"{poller.title()}, please take the poll!")
+        
+        
+# List in a dictionary
+favouriteLanguages = {
+    'jen': ['python', 'ruby'],
+    'sarah': ['c'],
+    'edward': ['ruby', 'go'],
+    'phil': ['python', 'haskell'],
+}
+
+# Here we loop over the key-value pairs in the dictionary favouriteLanguages
+for name, languages in favouriteLanguages.items():
+    # We print out the key, the person to create a sentence with it
+    print(f"\n{name.title()}'s favourite languages are:")
+    
+    # We then create another loop, as "languages" is a list and we need to access each individual value in it
+    # So for every loop of the name, we loop through the entire list associated with the name in order to print it out
+    for language in languages:
+        print(f"\t{language.title()}")
+
+# We could futher refine the above program by using a if statement to check if a user has 1 or more favourite languages. We can use len() to check the length of the list the use an argument to check and then to produce custom messages based on 1 or more in the list.
+
+favouriteLanguages = {
+    'jen': ['python', 'ruby'],
+    'sarah': ['c'],
+    'edward': ['ruby', 'go'],
+    'phil': ['python', 'haskell'],
+}
+
+for name, languages in favouriteLanguages.items():
+    if len(languages) > 1:
+        print(f"\n{name.title()}'s favourite languages are:")
+
+        for language in languages:
+            print(f"\t{language.title()}")
+    else:
+        # Looping here so we have access to the actual value and not the list itself( ['c'] vs 'c')
+        for language in languages:
+            print(f"\n{name.title()}'s favourite language is {language.title()}")
+
+# Also, you should not nest lists and dictionaries too deeply. Going more than the above example is usually a bad idea and you should rethink how the code works (a more simple way).
